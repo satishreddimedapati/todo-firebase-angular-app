@@ -1,0 +1,114 @@
+<div class="courses-container">
+    <!-- Navigation Buttons -->
+  <!-- Navigation Buttons -->
+<div class="nav-buttons">
+    <button (click)="showAddCourse()">➕ Add Course</button>
+    <button (click)="showViewCourses()">📚 View Courses</button>
+    <button (click)="showOverview()">📊 Overview</button>
+    <button (click)="showRewards()">🏆 Rewards</button>
+</div>
+<!-- Overview Section -->
+<!-- Overview Section -->
+<div *ngIf="isViewingOverview" class="overview-section">
+    <h2>📊 Course Overview</h2>
+    <p>📚 Total Courses: {{ courses.length }}</p>
+    <p>✅ Completed Courses: {{ completedCoursesCount }}</p>
+    <p>📈 Overall Progress: {{ overallProgress }}%</p>
+  
+    <!-- Progress Chart (Bar Chart using Chart.js)
+    <div *ngIf="overallProgress">
+        <canvas id="progressChart" width="400" height="400"></canvas>
+    </div> -->
+  
+    <!-- Task Breakdown -->
+    <h3>Task Breakdown</h3>
+    <p>✅ Completed Tasks: {{ completedTasks }}</p>
+    <p>❌ Pending Tasks: {{ pendingTasks }}</p>
+  </div>
+  
+
+<!-- Rewards Section -->
+<div *ngIf="isViewingRewards" class="rewards-section">
+    <h2>🏆 Rewards</h2>
+    <p>🌟 Total Points Earned: {{ totalPoints }}</p>
+    <p>🎖️ Badges: {{ earnedBadges.join(', ') || 'No Badges Yet' }}</p>
+</div>
+
+
+    <!-- Step-by-Step Course Form -->
+    <div *ngIf="isAddingCourse" class="add-course">
+        <h2>➕ Add Course</h2>
+        <div class="progress-indicator">
+            <div class="step" [class.active]="currentStep >= 1">1️⃣</div>
+            <div class="step" [class.active]="currentStep >= 2">2️⃣</div>
+            <div class="step" [class.active]="currentStep >= 3">3️⃣</div>
+            <div class="step" [class.active]="currentStep >= 4">4️⃣</div>
+        </div>
+
+        <p class="motivation">{{ randomMessage }}</p>
+
+        <div *ngIf="currentStep === 1">
+            <h3>Step 1: Course Title 📖</h3>
+            <input type="text" [(ngModel)]="newCourse.title" placeholder="Enter course name..." />
+            <button (click)="nextStep()">➡️ Next</button>
+        </div>
+
+        <div *ngIf="currentStep === 2">
+            <h3>Step 2: Add Tasks/Modules 📚</h3>
+            <input type="text" [(ngModel)]="newTask.title" placeholder="Task Title" />
+            <input type="date" [(ngModel)]="newTask.dueDate" />
+            <textarea [(ngModel)]="newTask.notes" placeholder="Notes"></textarea>
+            <button (click)="addTaskToCourse()">➕ Add Task</button>
+
+            <ul>
+                <li *ngFor="let task of newCourse.tasks">
+                    <span>{{ task.title }} - 📅 {{ task.dueDate || 'No Date' }} - {{ task.notes || 'No Notes' }}</span>
+                </li>
+            </ul>
+
+            <button (click)="prevStep()">⬅️ Back</button>
+            <button (click)="nextStep()">➡️ Next</button>
+        </div>
+
+        <div *ngIf="currentStep === 3">
+            <h3>Step 3: Set Target Date 📅</h3>
+            <input type="date" [(ngModel)]="newCourse.targetDate" />
+            <button (click)="prevStep()">⬅️ Back</button>
+            <button (click)="nextStep()">➡️ Next</button>
+        </div>
+
+        <div *ngIf="currentStep === 4">
+            <h3>Step 4: Add Notes 📝</h3>
+            <textarea [(ngModel)]="newCourse.notes" placeholder="Any notes for this course?"></textarea>
+            <button (click)="prevStep()">⬅️ Back</button>
+            <button (click)="addCourse()">✅ Finish</button>
+        </div>
+    </div>
+
+    <!-- View Courses -->
+    <div *ngFor="let course of courses; let i = index" class="course-card">
+        <h3>
+            {{ course.title }} 
+            <span *ngIf="course.completed" class="completed-badge">✅ Completed</span>
+        </h3>
+        <p>📅 Target Date: {{ course.targetDate || 'Not Set' }}</p>
+        <p>📝 Notes: {{ course.notes || 'No Notes' }}</p>
+        <p>🏆 Points Earned: {{ course.pointsEarned }}</p>
+    
+        <ul>
+            <li *ngFor="let task of course.tasks">
+                <span [class.completed]="task.completed">{{ task.title }}</span>
+                - 📅 {{ task.dueDate || 'No Date' }} 
+                - {{ task.notes || 'No Notes' }}
+                <button *ngIf="!task.completed" class="mark-complete" (click)="markTaskComplete(course, task)">
+                    ✔ Mark as Completed
+                </button>
+                <span *ngIf="task.completed" class="completed-task">✔ Completed</span>
+            </li>
+        </ul>
+    
+        <!-- Delete Course Button -->
+        <button class="delete-btn" (click)="deleteCourse(course.id)">🗑️ Delete</button>
+    </div>
+    
+</div>

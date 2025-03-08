@@ -1,0 +1,306 @@
+/* General Styles */
+.courses-container {
+    max-width: 600px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Add Course Form */
+.add-course {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Progress Steps */
+.progress-indicator {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.step {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.step.active {
+    background: #4caf50;
+    color: white;
+}
+
+/* Motivation Message */
+.motivation {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Input Fields */
+input, textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* Course Card */
+.course-card {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+/* Task List */
+.task-list {
+    margin-top: 10px;
+    padding: 0;
+}
+
+.task-list li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 8px;
+    margin: 5px 0;
+    transition: background 0.3s ease-in-out;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Completed Task */
+.task-list li.completed {
+    background: #d4edda;
+    text-decoration: line-through;
+    color: gray;
+}
+
+/* Mark as Completed Button */
+.mark-complete {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.completed-badge {
+    color: green;
+    font-weight: bold;
+}
+
+.completed-task {
+    color: green;
+    font-weight: bold;
+}
+
+.mark-complete {
+    background-color: #28a745;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+}
+.view-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.course-card {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+}
+
+.course-header h3 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #343a40;
+}
+
+.completed-badge {
+    color: green;
+    font-weight: bold;
+}
+
+.progress-container {
+    height: 10px;
+    width: 100%;
+    background: #e0e0e0;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #28a745;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-list li {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-meta {
+    font-size: 0.8em;
+    color: gray;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: gray;
+}
+
+.completed-task {
+    color: green;
+    font-weight: bold;
+}
+
+.mark-complete {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s ease;
+}
+
+.mark-complete:hover {
+    background-color: #0056b3;
+}
+
+.course-notes {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.points-earned {
+    font-weight: bold;
+    color: #333;
+}
+
+.overview-section, .rewards-section {
+    padding: 15px;
+    margin-top: 20px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.overview-section h2, .rewards-section h2 {
+    color: #333;
+}
+
+.overview-section p, .rewards-section p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+.delete-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-top: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+.overview-section {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f4f4f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .overview-section h2 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .overview-section p {
+    font-size: 18px;
+    color: #555;
+  }
+  
+  canvas {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+

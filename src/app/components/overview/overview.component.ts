@@ -3,6 +3,8 @@ import Chart from 'chart.js/auto';
 import { FirebaseService } from '../../services/firebase.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
+
 @Component({
   selector: 'app-overview',
   standalone: true,
