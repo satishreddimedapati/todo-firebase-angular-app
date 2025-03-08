@@ -1,7 +1,19 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from './app/app.module';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from '../src/app/app.component';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { environment } from './environments/environment';
+import { provideRouter, Routes } from '@angular/router';
+import { TasksComponent } from './app/tasks/tasks.component';
 
-platformBrowserDynamic().bootstrapModule(AppModule, {
-  ngZoneEventCoalescing: true,
-})
-  .catch(err => console.error(err));
+const routes: Routes = [
+  { path: 'completed-tasks', component: TasksComponent }, // Completed Tasks route
+];
+
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    provideRouter(routes) // Provide router configuration
+  ],
+}).catch((err) => console.error(err));

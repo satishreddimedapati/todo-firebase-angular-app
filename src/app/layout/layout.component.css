@@ -1,0 +1,53 @@
+/* 📌 Default Layout */
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 🏡 Header Styling */
+.header {
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 📂 Sidebar */
+.sidebar {
+    width: 230px;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 📌 Main Content */
+.main-content {
+    margin-left: 260px;
+    padding: 20px;
+    flex-grow: 1;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 🌈 Theme-Based Layout Customization */
+.bright .header { background: #f1f1f1; color: #333; }
+.bright .sidebar { background: #fff; color: #333; }
+.bright .main-content { background: #f8f9fa; color: #333; }
+
+.colorful .header { background: #ff758c; color: white; }
+.colorful .sidebar { background: #ff7eb3; color: white; }
+.colorful .main-content { background: linear-gradient(135deg, #ff758c, #ff7eb3); color: white; }
+
+.dark .header { background: #222; color: white; }
+.dark .sidebar { background: #181818; color: white; }
+.dark .main-content { background: #121212; color: white; }
+
+.minimalist .header { background: #ddd; color: #444; }
+.minimalist .sidebar { background: #eee; color: #444; }
+.minimalist .main-content { background: #f4f4f4; color: #444; }

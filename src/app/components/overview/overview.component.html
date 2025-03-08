@@ -1,0 +1,106 @@
+<div class="overview-container">
+    <h2>📊 Productivity Overview</h2>
+
+    <!-- FILTERS -->
+    <div class="filters">
+        <!-- Year Dropdown -->
+        <label>Year:</label>
+        <select [(ngModel)]="filterOptions.year" (change)="applyFilters()">
+            <option *ngFor="let year of years" [value]="year">{{ year === 0 ? 'All Years' : year }}</option>
+          </select>
+      
+        <!-- Month Dropdown -->
+        <label>Month:</label>
+        <select [(ngModel)]="filterOptions.month" (change)="applyFilters()">
+            <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+          </select>
+      
+        <!-- Week Dropdown -->
+        <label>Week:</label>
+        <select [(ngModel)]="filterOptions.week" (change)="applyFilters()">
+            <option *ngFor="let week of weeks" [value]="week">{{ week }}</option>
+          </select>
+      
+        <!-- Date Picker -->
+        <label>Date:</label>
+        <input type="date" [(ngModel)]="filterOptions.selectedDate" (change)="applyFilters()">
+      </div>
+      
+
+    <!-- STATS SECTION -->
+    <div class="stats-container">
+        <div class="stat-card">🔥 Streak: <strong>{{ streakCount }} Days</strong></div>
+        <div class="stat-card">💯 Productivity Score: <strong>{{ productivityScore | number : '1.0-0' }}/100</strong></div>
+        <div class="stat-card">📅 Tasks Done Today: <strong>{{ dailyCompleted }}/{{ dailyTotal }}</strong></div>
+    </div>
+
+    <!-- MONTHLY PROGRESS -->
+    <div class="monthly-progress-wrapper">
+        <!-- 🎯 Monthly Goal Progress -->
+        <div class="progress-box">
+          <h3>🎯 Monthly Goal</h3>
+          <div class="progress-circle">
+            <svg viewBox="0 0 100 100">
+              <circle class="background-circle" cx="50" cy="50" r="45"></circle>
+              <circle 
+                class="progress-circle-bar"
+                [attr.stroke-dasharray]="progressDashArray"
+                cx="50" cy="50" 
+                r="45">
+              </circle>
+            </svg>
+            <div class="progress-text">{{ monthlyCompleted }}/{{ monthlyGoal }}</div>
+          </div>
+        </div>
+      
+        <!-- ⚡ Unfinished Goal Progress -->
+        <div class="progress-box">
+          <h3>⚡ Unfinished Tasks</h3>
+          <div class="progress-circle unfinished">
+            <svg viewBox="0 0 100 100">
+              <circle class="background-circle" cx="50" cy="50" r="45"></circle>
+              <circle 
+                class="progress-circle-bar unfinished-bar"
+                [attr.stroke-dasharray]="unfinishedProgressDashArray"
+                cx="50" cy="50" 
+                r="45">
+              </circle>
+            </svg>
+            <div class="progress-text">{{ unfinishedTasks }}/{{ pendingtasks }}</div>
+          </div>
+        </div>
+        <div class="productivity-summary">
+            <h3>🏆 Productivity Insights</h3>
+            <p>🔥 Most Productive Day: <strong>{{ mostProductiveDay }}</strong></p>
+            <p>📉 Least Productive Day: <strong>{{ leastProductiveDay }}</strong></p>
+            <p>🌟 Best Day This Month: <strong>{{ bestMonthlyDay }}</strong></p>
+          
+            <!-- Motivational Tip -->
+            <div class="motivation-box">
+              <p>{{ motivationalTip }}</p>
+            </div>
+          </div>
+          
+      </div>
+      
+
+
+    <!-- CHARTS -->
+    <div class="charts-container">
+        <div class="chart-box">
+            <h3>📊 Category-wise Completion</h3>
+            <canvas id="categoryChart"></canvas>
+        </div>
+        
+        <div class="chart-box">
+            <h3>📅 Weekly Task Completion</h3>
+            <canvas id="weeklyChart"></canvas>
+        </div>
+    </div>
+
+    <!-- MOTIVATIONAL MESSAGE -->
+    <div class="motivation-box">
+        <h3>💡 Daily Motivation</h3>
+        <p class="motivational-tip">{{ motivationalTip }}</p>
+    </div>
+</div>

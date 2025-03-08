@@ -1,0 +1,26 @@
+<div class="app-container">
+    <!-- Menu Button -->
+    <button class="menu-btn" (click)="toggleSidebar()">☰ Menu</button>
+  
+    <!-- Sidebar -->
+    <nav class="sidebar" *ngIf="isSidebarOpen">
+      <h2>Menu</h2>
+      <ul>
+        <li (click)="openCompletedTasksModal()">✔️ Add Tasks</li> 
+        <li (click)="showOverview()">📊 Overview</li>
+        
+        <li>🎁 Rewards</li>
+        <li>📚 Courses</li>
+        <li>🔧 Others</li>
+      </ul>
+    </nav>
+  
+    <!-- Main Content -->
+    <div class="container">
+      <h1>To-Do List</h1>
+      <button class="dark-mode-toggle" (click)="toggleDarkMode()">🌙</button>
+      <app-tasks *ngIf="!isOverviewVisible"></app-tasks>
+        <app-overview *ngIf="isOverviewVisible"></app-overview>
+    </div>
+  </div>
+  

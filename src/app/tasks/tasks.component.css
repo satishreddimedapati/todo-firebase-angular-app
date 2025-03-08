@@ -1,0 +1,151 @@
+/* ✨ Task Input Section */
+.input-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease-in-out;
+}
+
+.input-container input,
+.input-container select {
+    padding: 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: transform 0.2s ease-in-out;
+}
+
+.input-container input:focus,
+.input-container select:focus {
+    transform: scale(1.05);
+    outline: none;
+}
+
+.input-container button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.input-container button:hover {
+    transform: scale(1.1);
+    background: #ff4757;
+}
+
+/* 🎭 Task List */
+.task-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* 🃏 Task Card */
+.task-list li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background: white;
+    padding: 12px;
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.task-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Completed Task */
+.task-list li.completed {
+    background: #c3e6cb;
+    border-left: 5px solid #28a745;
+}
+
+.task-list li.completed .task-info span {
+    text-decoration: line-through;
+}
+
+/* 📌 Task Info */
+.task-info {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.task-info .date {
+    font-size: 12px;
+    color: gray;
+}
+
+/* 🔥 Priority Styling */
+.priority.low {
+    color: #28a745;
+}
+
+.priority.medium {
+    color: #ffc107;
+}
+
+.priority.high {
+    color: #dc3545;
+}
+
+/* 🎭 Task Buttons */
+.toggle-btn,
+.delete {
+    margin-top: 10px;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.toggle-btn {
+    background: #007bff;
+    color: white;
+}
+
+.toggle-btn:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+.completed-btn {
+    background: #28a745 !important;
+}
+
+.delete {
+    background: #ff4757;
+    color: white;
+}
+
+.delete:hover {
+    background: #d63031;
+    transform: scale(1.05);
+}
+
+/* 🎨 Theme-based Changes */
+.bright .task-list li { background: #fff; color: #333; }
+.colorful .task-list li { background: linear-gradient(135deg, #ff758c, #ff7eb3); color: white; }
+.dark .task-list li { background: #333; color: white; }
+.minimalist .task-list li { background: #f4f4f4; color: #444; }
+

@@ -1,1 +1,128 @@
-/* You can add global styles to this file, and also import other style files */
+/* 🌎 Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 🎨 Theme Selector */
+.theme-selector {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.theme-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.theme-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 🏠 App Container */
+.app-container {
+    display: flex;
+    height: 100vh;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 📂 Sidebar */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: #ffffff;
+    color: #333;
+    padding: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+.sidebar ul li:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+/* 📌 Menu Button */
+.menu-btn {
+    position: absolute;
+    top: 20px;
+    right: 220px;
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.menu-btn:hover {
+    background: #0056b3;
+}
+
+/* 📌 Main Content */
+.container {
+    margin-left: 260px;
+    padding: 20px;
+    flex-grow: 1;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 🌙 Dark Mode Toggle */
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* 🌈 Theme-Based Styling */
+.bright .sidebar { background: #ffffff; color: #333; }
+.bright .container { background: #f8f9fa; color: #333; }
+
+.colorful .sidebar { background: #ff758c; color: white; }
+.colorful .container { background: linear-gradient(135deg, #ff758c, #ff7eb3); color: white; }
+
+.dark .sidebar { background: #222; color: white; }
+.dark .container { background: #121212; color: white; }
+
+.minimalist .sidebar { background: #ddd; color: #444; }
+.minimalist .container { background: #f4f4f4; color: #444; }

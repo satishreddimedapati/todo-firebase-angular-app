@@ -1,0 +1,43 @@
+/* 🌎 Global Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* 🎨 Theme Selector */
+.theme-selector {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    display: flex;
+    gap: 12px;
+}
+
+.theme-circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.theme-circle:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 🌈 Theme Colors */
+.theme-bright { background: #f8f9fa; }
+.theme-colorful { background: linear-gradient(135deg, #ff758c, #ff7eb3); }
+.theme-dark { background: #121212; }
+.theme-minimalist { background: #ddd; }
+
+/* 🌓 Apply Theme Styles */
+.bright { background: #ffffff; color: #333; }
+.colorful { background: linear-gradient(135deg, #ff758c, #ff7eb3); color: white; }
+.dark { background: #1c1c1c; color: white; }
+.minimalist { background: #f4f4f4; color: #444; }
