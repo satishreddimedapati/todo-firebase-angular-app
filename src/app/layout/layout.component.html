@@ -11,7 +11,7 @@
         
         <li>🎁 Rewards</li>
         <li (click)="showcourses()">📚 Courses</li>
-        <li>🔧 Entertainment</li>
+        <li (click)="showEntertainment()">🔧 Entertainment</li>
       </ul>
     </nav>
   
@@ -19,10 +19,11 @@
     <div class="container">
       <h1>To-Do List</h1>
       <button class="dark-mode-toggle" (click)="toggleDarkMode()">🌙</button>
-      <app-tasks *ngIf="!isOverviewVisible && !iscoursevisible"></app-tasks>
+      <app-tasks *ngIf="!isOverviewVisible && !iscoursevisible && !isEntertainmentVisible"></app-tasks>
         <app-overview *ngIf="isOverviewVisible && !iscoursevisible"></app-overview>
         
         <app-courses *ngIf="iscoursevisible && !isOverviewVisible"></app-courses>
+        <app-entertainment *ngIf="isEntertainmentVisible && !iscoursevisible"></app-entertainment>
 
     </div>
   </div>

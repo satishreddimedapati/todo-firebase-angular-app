@@ -1,0 +1,76 @@
+<!-- entertainment.component.html -->
+<div class="card-container">
+    <!-- Show movies -->
+    <div *ngIf="!showWatchlist">
+      <div *ngFor="let movie of movies" class="card">
+        <div class="card-inner" (click)="addToWatchlist(movie)">
+          <!-- Front of the card -->
+          <div class="card-front">
+            <div class="card-header">
+              {{ movie.title }} ({{ movie.releaseYear }})
+            </div>
+            <div class="card-info">
+              <p><strong>Hero:</strong> {{ movie.hero }}</p>
+            </div>
+            <div class="card-footer">
+              <button>Click for more</button>
+            </div>
+          </div>
+          
+          <!-- Back of the card -->
+          <div class="card-back">
+            <div class="card-header">
+              More Details
+            </div>
+            <div class="card-info">
+              <p><strong>Rating:</strong> {{ movie.rating }}</p>
+              <p><strong>OTT Platform:</strong> {{ movie.ottPlatform }}</p>
+              <p><strong>Director:</strong> {{ movie.director }}</p>
+              <p><strong>Runtime:</strong> {{ movie.runtime }}</p>
+            </div>
+            <div class="card-footer">
+              <button (click)="addToWatchlist(movie)">Add to Watchlist</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Show watchlist -->
+    <div *ngIf="showWatchlist">
+      <div *ngFor="let movie of watchlistMovies | async" class="card">
+        <div class="card-inner">
+          <!-- Front of the card -->
+          <div class="card-front">
+            <div class="card-header">
+              {{ movie.title }} ({{ movie.releaseYear }})
+            </div>
+            <div class="card-info">
+              <p><strong>Hero:</strong> {{ movie.hero }}</p>
+              <p><strong>Watch Date:</strong> {{ movie.watchDate }}</p>
+            </div>
+            <div class="card-footer">
+              <button>Details</button>
+            </div>
+          </div>
+          
+          <!-- Back of the card (Optional for extra details) -->
+          <div class="card-back">
+            <div class="card-header">
+              More Details
+            </div>
+            <div class="card-info">
+              <p><strong>Watch Date:</strong> {{ movie.watchDate }}</p>
+              <p><strong>Hero:</strong> {{ movie.hero }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Button to toggle between movies and watchlist -->
+    <button class="watchlist-toggle-button" (click)="toggleWatchlistView()">
+      {{ showWatchlist ? 'Back to Movies' : 'View Watchlist' }}
+    </button>
+  </div>
+  
